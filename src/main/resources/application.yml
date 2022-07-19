@@ -1,0 +1,29 @@
+quarkus:
+  datasource:
+    db-kind: postgresql
+    username: postgres
+    password: postgres
+    jdbc:
+      url: jdbc:postgresql://localhost:5432/diariodb
+  hibernate-orm:
+#    dialect: org.hibernate.dialect.PostgreSQLDialect
+    database:
+      generation: update
+#    sql-load-script:
+#      import.sql
+  smallrye-openapi:
+    path: /swagger
+  http:
+    cors: true
+
+mp:
+  jwt:
+    verify:
+      publickey:
+        location: token/publicKey.pem
+        issuer: http://techtalksteve.com/issuer
+smallrye:
+  jwt:
+    sign:
+      key:
+        location: token/privateKey.pem
